@@ -1,0 +1,28 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "[How to create a Professional README](./readme-guide.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anders Ackerman",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^6.5.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dj-Viking/readme-generator.git"
+  },
+  "keywords": [
+    "readme",
+    "javascript",
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/Dj-Viking/readme-generator/issues"
+  },
+  "homepage": "https://github.com/Dj-Viking/readme-generator#readme"
+}
