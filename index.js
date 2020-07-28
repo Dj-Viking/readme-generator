@@ -35,3 +35,36 @@
 // // function call to initialize program
 // init();
 
+const inquirer = require('inquirer');
+
+promptUser = () => {
+    console.log("~✨............................✨~");
+    console.log("Welcome to Readme Generator 1.0.0!");
+    console.log("~✨............................✨~");
+    console.log("~✨............................✨~");
+    console.log("~✨............................✨~");
+    console.log("Answer some questions below about your project in order to begin Generation!")
+    console.log("~*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*~");
+    return inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your Project Title?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a Project title.');
+                    return false;
+                }
+            }
+        }
+
+    ])
+}
+
+promptUser()
+.then(answers => {
+    console.log(answers);
+    return answers;
+})
