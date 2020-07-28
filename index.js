@@ -43,12 +43,12 @@ promptUser = () => {
     console.log("~✨............................✨~");
     console.log("~✨............................✨~");
     console.log("~✨............................✨~");
-    console.log("Answer some questions below about your project in order to begin Generation!")
+    console.log("Answer some questions below about your project in order to begin generating a Readme!")
     console.log("~*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*~");
     return inquirer.prompt ([
         {
             type: 'input',
-            name: 'name',
+            name: 'title',
             message: 'What is your Project Title?',
             validate: nameInput => {
                 if (nameInput) {
@@ -58,13 +58,107 @@ promptUser = () => {
                     return false;
                 }
             }
-        }
-
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Provide a Description of your Project:',
+            validate: descInput => {
+                if (descInput){
+                    return true;
+                } else {
+                    console.log('Please enter a Description');
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'installInstructions',
+            message: 'Do you have any installation instructions (if any) for your Project? \nFeel free to copy plain text from another file:',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'usageInstructions',
+            message: 'Please provide a screenshot usage example \n(provide the relative path URL of where the image is located in your project directory):',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'license',
+            message: 'Which license would you like to add to this project?\n For info on a list of licenses go to this page -> \n https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository',
+            default: false //for this condition create the license section anyway with the text "Need help choosing a license? check out this link for more information on which license to choose: (https://choosealicense.com/)"
+            //if true create a badge with the license type at the top of the page.
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'If any end-users of your application were to have any additional questions, which email should they contact? \n Please provide your email:',
+            validate: emailInput => {
+                if (emailInput){
+                    return true;
+                } else {
+                    console.log("Please provide and email address.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'If any end-users wanted to ask questions on your github page \nwhere would they find your page? \n Please provide your github username:',
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your github username.");
+                    return false;
+                }
+            }
+        },
     ])
+}
+
+promptContrib = readmeData => {
+    if(!readmeData.contributors){
+        readmeData.contributors = [];
+    }
+    console.log(`
+=================
+Add a contributor
+=================
+    `)
+    return inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'contributors',
+            message: 'Provide a contributor name to this project (if any) \n separating the contributor name in this current format - firstname lastname:',
+            default: false
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddContrib',
+            message: 'Do you have one other contributor?',
+            default: false // if true create a separate prompt function to get more contributors
+        }
+    ])
+    .then(contribData => {
+        readmeData.contributors.push(contribData);
+        if (contribData.confirmAddContrib) {
+            return promptContrib(readmeData);//if confirmAddContrib is true recursively loop back through the function to add more contributors
+        } else {// if false return the object as is.
+            return readmeData;
+        }
+    });
+
 }
 
 promptUser()
 .then(answers => {
     console.log(answers);
     return answers;
+})
+.then(promptContrib)
+.then(contributors => {
+    console.log(contributors);
 })
