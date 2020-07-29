@@ -31,9 +31,15 @@
 // function init() {
 
 // }
-const licenseChoicesArray = ['MIT', 'ISC', 'Academic Free License v3.0', 'Apache license 2.0', 'Artistic license 2.0', 'Boost Software License 1.0', 'BSD 2-clause "Simplified" license', 'BSD 3-clause "New" or "Revised" license', 'Creative Commons license family', 'Creative Commons Zero v1.0 Universal', 'Creative Commons Attribution 4.0', 'Creative Commons Attribution Share Alike 4.0', 'Do What The F*** You Want To Public License', 'Educational Community License v2.0', 'Eclipse Public License 1.0', 'European Union Public License 1.1', 'European Union Public License 1.1', 'GNU General Public License family', 'GNU General Public License v2.0', 'GNU General Public License v3.0', 'GNU Lesser General Public License family', 'GNU Lesser General Public License v2.1', 'GNU Lesser General Public License v3.0', 'LaTeX Project Public License v1.3c', 'Microsoft Public License', 'Mozilla Public License 2.0', 'Open Software License 3.0', 'PostgreSQL License', 'SIL Open Font License 1.1', 'University of Illinois/NCSA Open Source License', 'The Unlicense', 'zLib License']
+
 // // function call to initialize program
 // init();
+
+const licenseChoices = require('./utils/license-choices.js');
+
+const licenseText = require('./utils/license-text.js');
+
+//console.log(licenseChoices);
 
 const inquirer = require('inquirer');
 
@@ -55,7 +61,6 @@ promptUser = () => {
                     return true;
                 } else {
                     console.log('Please enter a Project title.');
-                    return false;
                 }
             }
         },
@@ -93,7 +98,6 @@ promptUser = () => {
                     return true;
                 } else {
                     console.log("Please provide and email address.")
-                    return false;
                 }
             }
         },
@@ -106,7 +110,6 @@ promptUser = () => {
                     return true;
                 } else {
                     console.log("Please enter your github username.");
-                    return false;
                 }
             }
         },
@@ -175,10 +178,17 @@ promptLicense = readmeData => {
         {
             type: 'checkbox',
             name: 'license',
-            message: 'Which license would you like to add to this project?\n For info on which license to choose go to this page -> \n https://choosealicense.com/ \n Please keep in mind your readme will only reflect the FIRST choice you select',
-            choices: licenseChoicesArray,
-            when: ({licenseConfirm}) => licenseConfirm
+            message: 'Which license would you like to add to this project? ✨ Please Select One License ✨ \n For info on which license to choose, go to this page ->https://choosealicense.com/licenses/\n',
+            choices: licenseChoices.licenseChoicesArray,
+            when: ({licenseConfirm}) => licenseConfirm,
             //if true create a badge with the license type at the top of the page.
+            validate: license => {
+                if (license.length === 1) {
+                    return true;
+                } else {
+                    console.log("Please Select One Choice of License");
+                }
+            }
         }
 
     ])
