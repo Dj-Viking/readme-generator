@@ -35,8 +35,6 @@
 // // function call to initialize program
 // init();
 
-const licenseChoices = require('./utils/license-choices.js');
-
 // const licenseText = require('./utils/license-text.js');
 //console.log(licenseText.licenseText.mit);
 //checking how to reference the property inside the object we imported 
@@ -46,6 +44,8 @@ const licenseChoices = require('./utils/license-choices.js');
 
 //console.log(licenseChoices);
 
+const emailRegex = /\w+@\w+\.(net|com|org)/;
+const licenseChoices = require('./utils/license-choices.js');
 const inquirer = require('inquirer');
 
 promptUser = () => {
@@ -108,12 +108,12 @@ promptUser = () => {
         {
             type: 'input',
             name: 'email',
-            message: 'If any end-users of your application were to have any additional questions, \nwhich email should they contact? \n Please provide your email:',
+            message: 'If any end-users of your application were to have any additional questions, \nwhich email should they contact? \n Please provide your valid email address:',
             validate: emailInput => {
-                if (emailInput){
+                if (emailRegex.test(emailInput)){
                     return true;
                 } else {
-                    console.log("Please provide and email address.")
+                    console.log("Please provide a valid email address.")
                 }
             }
         },
