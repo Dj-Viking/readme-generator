@@ -27,7 +27,7 @@ console.log(data);
 
 # ${data.title}
 
-[![Selected License Badge](https://img.shields.io/badge/${data.licenseArray}.svg)]
+[![Selected License Badge](https://img.shields.io/badge/${data.licenseArray[0].license[0]}.svg)]
 
 ## ${data.description}
 
@@ -61,13 +61,6 @@ ${data.title} is licensed under the ${data.licenseArray.license} license.
 If anybody has any questions please reach out to the creator of the project - ${data.fullName} via:
 * Email ${data.email}
 * GitHub (https://github.com/${data.github})
-
-
-
-
-
-
-
 `;
 }
 
