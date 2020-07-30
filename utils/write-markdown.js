@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-writeMarkdown = markdownFile => {
+writeFile = markdownFile => {
     return new Promise((resolve, reject) =>{
         fs.writeFile('./README.md', markdownFile, err =>{
             if (err) {
@@ -16,4 +16,4 @@ writeMarkdown = markdownFile => {
     });
 }
 
-module.exports = {writeMarkdown};
+module.exports = {writeFile};

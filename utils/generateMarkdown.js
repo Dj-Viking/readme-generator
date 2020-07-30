@@ -1,18 +1,33 @@
-//const readmeData = require('../index.js')
+const readmeData = require('../index.js');
+//const { licensePropertyKey } = require('../index.js');
+// const { contributors, licenseArray } = require('../index.js');
 
 
 // function to generate markdown for README
-generateMarkdown = data => {
-  if (data.licenseArray.licenseConfirm === false){
+generateFile = data => {
+  // if (data.licenseArray.licenseConfirm === false){
 
+  // }
+  data = {
+    title: readmeData.title,
+    description: readmeData.description,
+    fullName: readmeData.fullName,
+    installInstructions: readmeData.installInstructions,
+    usageInstructions: readmeData.usageInstructions,
+    testInstructions: readmeData.testInstructions,
+    email: readmeData.email,
+    github: readmeData.github,
+    contributors: readmeData.contributors,
+    licenseArray: readmeData.licenseArray,
+    licensePropertyKey: readmeData.licensePropertyKey
   }
-
+console.log(data);
 
   return `
 
 # ${data.title}
 
-[![Selected License Badge](https://img.shields.io/badge/${data.licenseArray.license[0]}.svg)]
+[![Selected License Badge](https://img.shields.io/badge/${data.licenseArray}.svg)]
 
 ## ${data.description}
 
@@ -39,7 +54,7 @@ ${data.contributors.forEach(async item =>{
 
 ## License
 
-${data.title} is licensed under the ${data.licenseArray.license[0]} license.
+${data.title} is licensed under the ${data.licenseArray.license} license.
 
 ## Questions
 
@@ -56,4 +71,4 @@ If anybody has any questions please reach out to the creator of the project - ${
 `;
 }
 
-module.exports = {generateMarkdown};
+module.exports = {generateFile}

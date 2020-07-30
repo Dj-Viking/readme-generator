@@ -47,6 +47,8 @@
 const emailRegex = /\w+@\w+\.(net|com|org)/;
 const licenseChoices = require('./utils/license-choices.js');
 const inquirer = require('inquirer');
+// const generateMarkdown = require('./utils/generateMarkdown.js');
+// const writeMarkdown = require('./utils/write-markdown.js');
 
 promptUser = () => {
     console.log("~✨............................✨~");
@@ -340,8 +342,20 @@ promptUser()
 .then(promptLicense)
 .then(object3 => {
     console.log(object3);
-
+    // we have all the objects we need
+    // now just need to pass the object to the generate functions
+    return object3;
 })
-//generate and write license file to root dir
-
 //generate and write the markdown file to root dir
+.then(object4 => {
+    console.log(object4);
+    const generateMarkdown = require('./utils/generateMarkdown.js');
+    console.log(generateMarkdown);
+    return generateMarkdown.generateFile(object4);
+})
+//write the markdown file to the main directory
+.then(object5 => {
+    console.log(object5);
+    return writeMarkdown.writeFile(object5);
+});
+//generate and write license file to root dir
