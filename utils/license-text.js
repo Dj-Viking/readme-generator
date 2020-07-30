@@ -1,21 +1,33 @@
 //object keys:
-//  mit
+//  mit NEEDS NAME 
 //  cc
 //  apache
 //  boostSL
-//  bsd2
-//  bsd3
+//  bsd2 NEEDS NAME
+//  bsd3 NEEDS NAME
 //  mozPL
 //  gnuLGPL21
 //  gnuGPL2
 //  gnuGPL3
 //  gnuAGPL3
 
+const readmeData = require('../index.js');
+
+let currentDay = new Date();
+let settingName = "test";
+let currentYear = currentDay.getFullYear();
+
+const setName = () => {
+    settingName = readmeData.fullName;
+    
+}
+setName();
 const licenseText = {
+    
     mit: `
     MIT License
 
-    Copyright (c) [year] [fullname]
+    Copyright (c) ${currentYear} ${settingName}
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -390,7 +402,7 @@ DEALINGS IN THE SOFTWARE.
 bsd2:
 `BSD 2-Clause License
 
-Copyright (c) [year], [fullname]
+Copyright (c) ${currentYear}, ${settingName}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -417,7 +429,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 bsd3: 
 `BSD 3-Clause License
 
-Copyright (c) [year], [fullname]
+Copyright (c) ${currentYear}, ${settingName}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -3008,4 +3020,4 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 `
 }
 
-module.exports = {licenseText};
+module.exports = {licenseText, setName};

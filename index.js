@@ -13,8 +13,8 @@
 //SOON THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
 //DONE*** WHEN I enter my email address
 //SOON THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
+//SOON WHEN I click on the links in the Table of Contents
+//SOON THEN I am taken to the corresponding section of the README
 
 
 
@@ -37,7 +37,12 @@
 
 const licenseChoices = require('./utils/license-choices.js');
 
-const licenseText = require('./utils/license-text.js');
+// const licenseText = require('./utils/license-text.js');
+//console.log(licenseText.licenseText.mit);
+//checking how to reference the property inside the object we imported 
+//which has an object inside it.
+//name is empty be default until user enters their name it will
+//  fill into the licenses that require a full name
 
 //console.log(licenseChoices);
 
@@ -78,6 +83,12 @@ promptUser = () => {
         },
         {
             type: 'input',
+            name: 'fullName',
+            message: 'Please enter your full name - for end user contact purposes. \n   And should you choose a license that requires a name, it will be placed there automatically!',
+            default: false
+        },
+        {
+            type: 'input',
             name: 'installInstructions',
             message: 'Do you have any installation instructions (if any) for your Project? \nFeel free to copy plain text from another file:',
             default: false
@@ -88,7 +99,12 @@ promptUser = () => {
             message: 'Please provide a screenshot usage example \n(provide the relative path URL of where the image is located in your project directory):',
             default: false
         },
-        
+        {
+            type: 'input',
+            name: 'testInstructions',
+            message: 'Please provide test instructions (if any) to allow the user to test the application before running it the first time manually:',
+            default: false
+        },
         {
             type: 'input',
             name: 'email',
@@ -114,6 +130,10 @@ promptUser = () => {
             }
         },
     ])
+    // .then(readmeData => {
+    //     console.log(readmeData.fullName);
+    //     return readmeData;
+    // })
 }
 
 promptContrib = readmeData => {
@@ -153,13 +173,15 @@ Add a Contributor
 //create function for asking user if they want a license or not. 
 //if confirmed then let them choose which one
 promptLicense = readmeData => {
+    //const licenseText = require('./utils/license-text.js');
     console.log(`
     =============
     Add a License
     =============
         `)
-    if (!readmeData.licenseArray){
+    if (!readmeData.licenseArray && !readmeData.licensePropertyKey){
         readmeData.licenseArray = [];
+        readmeData.licensePropertyKey = [];
         console.log(readmeData);
     }
     return inquirer.prompt ([
@@ -193,9 +215,114 @@ promptLicense = readmeData => {
 
     ])
     .then(licenseData => {
-        console.log(licenseData);
-        readmeData.licenseArray.push(licenseData);
-        return readmeData;
+        console.log(readmeData);
+        //const licenseText = require('./utils/license-text.js');
+        let keyToPush;
+        if (licenseData.license[0].includes("MIT")){
+            keyToPush = "mit";
+            readmeData.licensePropertyKey.push(keyToPush);
+            module.exports = {
+                title: readmeData.title,
+                description: readmeData.description,
+                fullName: readmeData.fullName,
+                installInstructions: readmeData.installInstructions,
+                usageInstructions: readmeData.usageInstructions,
+                testInstructions: readmeData.testInstructions,
+                email: readmeData.email,
+                github: readmeData.github,
+                contributors: readmeData.contributors,
+                licenseArray: readmeData.licenseArray,
+                licensePropertyKey: readmeData.licensePropertyKey
+            };
+            const licenseText = require('./utils/license-text.js');
+            console.log(licenseText.licenseText.mit); 
+        }
+        if (licenseData.license[0].includes("Creative")) {
+            keyToPush = "cc";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("Apache")){
+            keyToPush = "apache";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("Boost")){
+            keyToPush = "boostSL";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("Simplified")){
+            keyToPush = "bsd2";
+            readmeData.licensePropertyKey.push(keyToPush);
+            module.exports = {
+                title: readmeData.title,
+                description: readmeData.description,
+                fullName: readmeData.fullName,
+                installInstructions: readmeData.installInstructions,
+                usageInstructions: readmeData.usageInstructions,
+                testInstructions: readmeData.testInstructions,
+                email: readmeData.email,
+                github: readmeData.github,
+                contributors: readmeData.contributors,
+                licenseArray: readmeData.licenseArray,
+                licensePropertyKey: readmeData.licensePropertyKey
+            };
+            const licenseText = require('./utils/license-text.js');
+            console.log(licenseText.licenseText.bsd2);
+        }
+        if (licenseData.license[0].includes("New")){
+            keyToPush = "bsd3";
+            readmeData.licensePropertyKey.push(keyToPush);
+            module.exports = {
+                title: readmeData.title,
+                description: readmeData.description,
+                fullName: readmeData.fullName,
+                installInstructions: readmeData.installInstructions,
+                usageInstructions: readmeData.usageInstructions,
+                testInstructions: readmeData.testInstructions,
+                email: readmeData.email,
+                github: readmeData.github,
+                contributors: readmeData.contributors,
+                licenseArray: readmeData.licenseArray,
+                licensePropertyKey: readmeData.licensePropertyKey
+            };
+            const licenseText = require('./utils/license-text.js');
+            console.log(licenseText.licenseText.bsd3);
+        }
+        if (licenseData.license[0].includes("Mozilla")){
+            keyToPush = "mozPL";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("v2.1")){
+            keyToPush = "gnuLGPL21";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("v2.0")){
+            keyToPush = "gnuGPL2";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("v3.0")){
+            keyToPush = "gnuGPL3";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+        if (licenseData.license[0].includes("Affero")){
+            keyToPush = "gnuAGPL3";
+            readmeData.licensePropertyKey.push(keyToPush);
+        }
+            console.log(licenseData);
+            readmeData.licenseArray.push(licenseData);
+            module.exports = {
+                title: readmeData.title,
+                description: readmeData.description,
+                fullName: readmeData.fullName,
+                installInstructions: readmeData.installInstructions,
+                usageInstructions: readmeData.usageInstructions,
+                testInstructions: readmeData.testInstructions,
+                email: readmeData.email,
+                github: readmeData.github,
+                contributors: readmeData.contributors,
+                licenseArray: readmeData.licenseArray,
+                licensePropertyKey: readmeData.licensePropertyKey
+            };
+            return readmeData;
     });
 }
 
@@ -215,3 +342,6 @@ promptUser()
     console.log(object3);
 
 })
+//generate and write license file to root dir
+
+//generate and write the markdown file to root dir
