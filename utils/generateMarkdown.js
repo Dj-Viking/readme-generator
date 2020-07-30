@@ -54,7 +54,7 @@ ${data.contributors.forEach(async item =>{
 
 ## License
 
-${data.title} is licensed under the ${data.licenseArray.license} license.
+${data.title} is licensed under the ${data.licenseArray[0].license[0]} license.
 
 ## Questions
 
