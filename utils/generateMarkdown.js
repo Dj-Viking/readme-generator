@@ -40,12 +40,22 @@ displayContributors = () => {
   splitArray = joinedArray.split(', ');
   return `${splitArray}`
 }
+let licenseLink; 
+licenseLinkGenerator = () => {
+  if (data.licensePropertyKey[0] === "mit"){
+    licenseLink = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+  }
+  if (data.licensePropertyKey[0] === "cc"){
+    licenseLink = `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`
+  }
+  return licenseLink;
+}
 
   return `
 
 # ${data.title}
 
-[![Selected License Badge](https://img.shields.io/badge/${data.licenseArray[0].license[0]}.svg)]
+${licenseLinkGenerator()}
 
 ## Description 
 

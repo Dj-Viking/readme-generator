@@ -1,12 +1,12 @@
 
 
-# asdf
+# Readme Generator
 
-[![Selected License Badge](https://img.shields.io/badge/MIT.svg)]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
 
-a
+Generate a Readme using node.js and npm inquirer
 
 ## Table of Contents
 * [Installation](#installation)
@@ -16,24 +16,23 @@ a
 
 ## Installation
 
-false
+Install instructions coming soon
 
 ## Usage
 
-false
+path to picture soon
 
 ## Credits
 
 * Anders Ackerman
-* John Cena
-* The Rock
+* My Three Cats!
 
 ## License
 
-asdf is licensed under the MIT license.
+Readme Generator is licensed under the MIT license.
 
 ## Questions
 
-If anybody has any questions please reach out to the creator of the project - false via:
-* Email asdfl@mail.com
-* GitHub (https://github.com/asdf)
+If anybody has any questions please reach out to the creator of the project - Anders Ackerman via:
+* Email anders.swedishviking@gmail.com
+* GitHub (https://github.com/dj-viking)

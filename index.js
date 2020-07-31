@@ -15,11 +15,11 @@
 
 //***DONE GIVEN a command-line application that accepts user input
 //***DONE WHEN I am prompted for information about my application repository
-//SOON THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+//***DONE THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 //***DONE WHEN I enter my project title
-//SOON THEN this is displayed as the title of the README
+//***DONE THEN this is displayed as the title of the README
 //***DONE WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-//SOON THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
+//***DONE THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 //***DONE WHEN I choose a license for my application from a list of options
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 //***DONE WHEN I enter my GitHub username
