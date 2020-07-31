@@ -2,11 +2,11 @@
 
 # Readme Generator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
 
-Generate a Readme using node.js and npm inquirer
+Generate a README.md file using node.js with inquirer
 
 ## Table of Contents
 * [Installation](#installation)
@@ -16,11 +16,11 @@ Generate a Readme using node.js and npm inquirer
 
 ## Installation
 
-Install instructions coming soon
+install instructions soon
 
 ## Usage
 
-path to picture soon
+screenshot example soon
 
 ## Credits
 

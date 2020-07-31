@@ -1,6 +1,6 @@
 const licenseChoicesArray = [
 'MIT', 
-'Creative Commmons Zero v1.0 Universal',
+'Creative Commons Zero v1.0 Universal',
 'Apache License 2.0',
 'Boost Software License 1.0',
 'BSD 2-Clause "Simplified" License',

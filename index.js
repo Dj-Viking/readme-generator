@@ -308,15 +308,11 @@ Add a License
             keyToPush = "mozPL";
             readmeData.licensePropertyKey.push(keyToPush);
         }
-        if (licenseData.license[0].includes("v2.1")){
-            keyToPush = "gnuLGPL21";
-            readmeData.licensePropertyKey.push(keyToPush);
-        }
         if (licenseData.license[0].includes("v2.0")){
             keyToPush = "gnuGPL2";
             readmeData.licensePropertyKey.push(keyToPush);
         }
-        if (licenseData.license[0].includes("v3.0")){
+        if (licenseData.license[0].includes("GNU General Public License v3.0")){
             keyToPush = "gnuGPL3";
             readmeData.licensePropertyKey.push(keyToPush);
         }
