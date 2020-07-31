@@ -6,7 +6,7 @@
 
 ## Description 
 
-Generate a README.md file using node.js and npm Inquirer
+Generate a README.md file using node.js with Inquirer
 
 ## Table of Contents
 * [Installation](#installation)
@@ -20,7 +20,7 @@ install instructions coming soon
 
 ## Usage
 
-path to picture coming soon
+URL coming soon
 
 ## Credits
 
@@ -34,5 +34,5 @@ Readme Generator is licensed under the MIT license.
 ## Questions
 
 If anybody has any questions please reach out to the creator of the project - Anders Ackerman via:
-* Email anders.swedishviking@gmail.com
-* GitHub (https://github.com/dj-viking)
+* Email: anders.swedishviking@gmail.com
+* GitHub: (https://github.com/dj-viking)

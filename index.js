@@ -111,7 +111,7 @@ promptUser = () => {
         {
             type: 'input',
             name: 'usageInstructions',
-            message: 'Please provide a screenshot usage example \n(provide the relative path URL of where the image is located in your project directory):',
+            message: 'Please provide a video or screenshot usage example \n(provide the youtube link or relative path URL of where the image is located in your project directory):',
             default: false
         },
         {
@@ -226,143 +226,170 @@ Add a License
         }
     ])
     .then(licenseData => {
-        console.log(readmeData);
-        //const licenseText = require('./utils/license-text.js');
-        let keyToPush;
-        if (licenseData.license[0].includes("MIT")){
-            keyToPush = "mit";
-            readmeData.licensePropertyKey.push(keyToPush);
-            module.exports = {
-                title: readmeData.title,
-                description: readmeData.description,
-                fullName: readmeData.fullName,
-                installInstructions: readmeData.installInstructions,
-                usageInstructions: readmeData.usageInstructions,
-                testInstructions: readmeData.testInstructions,
-                email: readmeData.email,
-                github: readmeData.github,
-                contributors: readmeData.contributors,
-                licenseArray: readmeData.licenseArray,
-                licensePropertyKey: readmeData.licensePropertyKey
-            };
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.mit);
-        }
-        if (licenseData.license[0].includes("Creative")) {
-            keyToPush = "cc";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.cc);
-        }
-        if (licenseData.license[0].includes("Apache")){
-            keyToPush = "apache";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.apache);
-        }
-        if (licenseData.license[0].includes("Boost")){
-            keyToPush = "boostSL";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.boostSL);
-        }
-        if (licenseData.license[0].includes("Simplified")){
-            keyToPush = "bsd2";
-            readmeData.licensePropertyKey.push(keyToPush);
-            module.exports = {
-                title: readmeData.title,
-                description: readmeData.description,
-                fullName: readmeData.fullName,
-                installInstructions: readmeData.installInstructions,
-                usageInstructions: readmeData.usageInstructions,
-                testInstructions: readmeData.testInstructions,
-                email: readmeData.email,
-                github: readmeData.github,
-                contributors: readmeData.contributors,
-                licenseArray: readmeData.licenseArray,
-                licensePropertyKey: readmeData.licensePropertyKey
-            };
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.bsd2);
-        }
-        if (licenseData.license[0].includes("New")){
-            keyToPush = "bsd3";
-            readmeData.licensePropertyKey.push(keyToPush);
-            module.exports = {
-                title: readmeData.title,
-                description: readmeData.description,
-                fullName: readmeData.fullName,
-                installInstructions: readmeData.installInstructions,
-                usageInstructions: readmeData.usageInstructions,
-                testInstructions: readmeData.testInstructions,
-                email: readmeData.email,
-                github: readmeData.github,
-                contributors: readmeData.contributors,
-                licenseArray: readmeData.licenseArray,
-                licensePropertyKey: readmeData.licensePropertyKey
-            };
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.bsd3);
-        }
-        if (licenseData.license[0].includes("Mozilla")){
-            keyToPush = "mozPL";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.mozPL);
-        }
-        if (licenseData.license[0].includes("v2.0")){
-            keyToPush = "gnuGPL2";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.gnuGPL2);
-        }
-        if (licenseData.license[0].includes("GNU General Public License v3.0")){
-            keyToPush = "gnuGPL3";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.gnuGPL3);
-        }
-        if (licenseData.license[0].includes("Affero")){
-            keyToPush = "gnuAGPL3";
-            readmeData.licensePropertyKey.push(keyToPush);
-            const licenseText = require('./utils/license-text.js');
-            //console.log(licenseText.licenseText.mit);
-            const writeLicense = require('./utils/write-license-text.js');
-            writeLicense.writeLicense(licenseText.licenseText.gnuAGPL3);
+        if (!readmeData.licenseConfirmData){
+            readmeData.licenseConfirmData = [];
         }
         console.log(licenseData);
-        readmeData.licenseArray.push(licenseData);
-        module.exports = {
-            title: readmeData.title,
-            description: readmeData.description,
-            fullName: readmeData.fullName,
-            installInstructions: readmeData.installInstructions,
-            usageInstructions: readmeData.usageInstructions,
-            testInstructions: readmeData.testInstructions,
-            email: readmeData.email,
-            github: readmeData.github,
-            contributors: readmeData.contributors,
-            licenseArray: readmeData.licenseArray,
-            licensePropertyKey: readmeData.licensePropertyKey
-        };
+        readmeData.licenseConfirmData.push(licenseData);
+        console.log(readmeData);
+        if(readmeData.licenseConfirmData[0].licenseConfirm === false){
+            module.exports = {
+                title: readmeData.title,
+                description: readmeData.description,
+                fullName: readmeData.fullName,
+                installInstructions: readmeData.installInstructions,
+                usageInstructions: readmeData.usageInstructions,
+                testInstructions: readmeData.testInstructions,
+                email: readmeData.email,
+                github: readmeData.github,
+                contributors: readmeData.contributors,
+                licenseArray: readmeData.licenseArray,
+                licenseConfirmData: readmeData.licenseConfirmData,
+                licensePropertyKey: readmeData.licensePropertyKey
+            };
+            return readmeData;
+        } else {
+
+            let keyToPush;
+            if (licenseData.license[0].includes("MIT")){
+                keyToPush = "mit";
+                readmeData.licensePropertyKey.push(keyToPush);
+                module.exports = {
+                    title: readmeData.title,
+                    description: readmeData.description,
+                    fullName: readmeData.fullName,
+                    installInstructions: readmeData.installInstructions,
+                    usageInstructions: readmeData.usageInstructions,
+                    testInstructions: readmeData.testInstructions,
+                    email: readmeData.email,
+                    github: readmeData.github,
+                    contributors: readmeData.contributors,
+                    licenseArray: readmeData.licenseArray,
+                    licenseConfirmData: readmeData.licenseConfirmData,
+                    licensePropertyKey: readmeData.licensePropertyKey
+                };
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.mit);
+            }
+            if (licenseData.license[0].includes("Creative")) {
+                keyToPush = "cc";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.cc);
+            }
+            if (licenseData.license[0].includes("Apache")){
+                keyToPush = "apache";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.apache);
+            }
+            if (licenseData.license[0].includes("Boost")){
+                keyToPush = "boostSL";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.boostSL);
+            }
+            if (licenseData.license[0].includes("Simplified")){
+                keyToPush = "bsd2";
+                readmeData.licensePropertyKey.push(keyToPush);
+                module.exports = {
+                    title: readmeData.title,
+                    description: readmeData.description,
+                    fullName: readmeData.fullName,
+                    installInstructions: readmeData.installInstructions,
+                    usageInstructions: readmeData.usageInstructions,
+                    testInstructions: readmeData.testInstructions,
+                    email: readmeData.email,
+                    github: readmeData.github,
+                    contributors: readmeData.contributors,
+                    licenseArray: readmeData.licenseArray,
+                    licenseConfirmData: readmeData.licenseConfirmData,
+                    licensePropertyKey: readmeData.licensePropertyKey
+                };
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.bsd2);
+            }
+            if (licenseData.license[0].includes("New")){
+                keyToPush = "bsd3";
+                readmeData.licensePropertyKey.push(keyToPush);
+                module.exports = {
+                    title: readmeData.title,
+                    description: readmeData.description,
+                    fullName: readmeData.fullName,
+                    installInstructions: readmeData.installInstructions,
+                    usageInstructions: readmeData.usageInstructions,
+                    testInstructions: readmeData.testInstructions,
+                    email: readmeData.email,
+                    github: readmeData.github,
+                    contributors: readmeData.contributors,
+                    licenseArray: readmeData.licenseArray,
+                    licenseConfirmData: readmeData.licenseConfirmData,
+                    licensePropertyKey: readmeData.licensePropertyKey
+                };
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.bsd3);
+            }
+            if (licenseData.license[0].includes("Mozilla")){
+                keyToPush = "mozPL";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.mozPL);
+            }
+            if (licenseData.license[0].includes("v2.0")){
+                keyToPush = "gnuGPL2";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.gnuGPL2);
+            }
+            if (licenseData.license[0].includes("GNU General Public License v3.0")){
+                keyToPush = "gnuGPL3";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.gnuGPL3);
+            }
+            if (licenseData.license[0].includes("Affero")){
+                keyToPush = "gnuAGPL3";
+                readmeData.licensePropertyKey.push(keyToPush);
+                const licenseText = require('./utils/license-text.js');
+                //console.log(licenseText.licenseText.mit);
+                const writeLicense = require('./utils/write-license-text.js');
+                writeLicense.writeLicense(licenseText.licenseText.gnuAGPL3);
+            }
+            console.log(licenseData);
+            readmeData.licenseArray.push(licenseData);
+            module.exports = {
+                title: readmeData.title,
+                description: readmeData.description,
+                fullName: readmeData.fullName,
+                installInstructions: readmeData.installInstructions,
+                usageInstructions: readmeData.usageInstructions,
+                testInstructions: readmeData.testInstructions,
+                email: readmeData.email,
+                github: readmeData.github,
+                contributors: readmeData.contributors,
+                licenseArray: readmeData.licenseArray,
+                licenseConfirmData: readmeData.licenseConfirmData,
+                licensePropertyKey: readmeData.licensePropertyKey
+            };
+        }
         return readmeData;
     });
 }
