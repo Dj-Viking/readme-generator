@@ -43,10 +43,34 @@ displayContributors = () => {
 let licenseLink; 
 licenseLinkGenerator = () => {
   if (data.licensePropertyKey[0] === "mit"){
-    licenseLink = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    licenseLink = `(![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)`;
   }
   if (data.licensePropertyKey[0] === "cc"){
-    licenseLink = `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`
+    licenseLink = `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`;
+  }
+  if (data.licensePropertyKey[0] === "apache"){
+    licenseLink = `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+  }
+  if (data.licensePropertyKey[0] === "boostSL"){
+    licenseLink = `[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`;
+  }
+  if (data.licensePropertyKey[0] === "bsd2"){
+    licenseLink = `[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`;
+  }
+  if (data.licensePropertyKey[0] === "bsd3"){
+    licenseLink = `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
+  }
+  if (data.licensePropertyKey[0] === "mozPL"){
+    licenseLink = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
+  }
+  if (data.licensePropertyKey[0] === "gnuGPL2"){
+    licenseLink = `[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
+  }
+  if (data.licensePropertyKey[0] === "gnuGPL3"){
+    licenseLink = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+  }
+  if (data.licensePropertyKey[0] === "gnuAGPL3"){
+    licenseLink = `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`;
   }
   return licenseLink;
 }

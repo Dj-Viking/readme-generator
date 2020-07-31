@@ -6,7 +6,7 @@
 //  bsd2 NEEDS NAME
 //  bsd3 NEEDS NAME
 //  mozPL
-//  gnuLGPL21
+//  gnuLGPL21 NO BADGE FOR THIS ONE THAT I CAN FIND
 //  gnuGPL2
 //  gnuGPL3
 //  gnuAGPL3
