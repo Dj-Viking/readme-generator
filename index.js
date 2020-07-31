@@ -145,10 +145,6 @@ promptUser = () => {
             }
         },
     ])
-    // .then(readmeData => {
-    //     console.log(readmeData.fullName);
-    //     return readmeData;
-    // })
 }
 
 promptContrib = readmeData => {
@@ -184,7 +180,6 @@ Add a Contributor
             return readmeData;
         }
     });
-
 }
 
 //create function for asking user if they want a license or not. 
@@ -229,7 +224,6 @@ Add a License
                 }
             }
         }
-
     ])
     .then(licenseData => {
         console.log(readmeData);
@@ -252,19 +246,33 @@ Add a License
                 licensePropertyKey: readmeData.licensePropertyKey
             };
             const licenseText = require('./utils/license-text.js');
-            console.log(licenseText.licenseText.mit); 
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.mit);
         }
         if (licenseData.license[0].includes("Creative")) {
             keyToPush = "cc";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.cc);
         }
         if (licenseData.license[0].includes("Apache")){
             keyToPush = "apache";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.apache);
         }
         if (licenseData.license[0].includes("Boost")){
             keyToPush = "boostSL";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.boostSL);
         }
         if (licenseData.license[0].includes("Simplified")){
             keyToPush = "bsd2";
@@ -283,7 +291,9 @@ Add a License
                 licensePropertyKey: readmeData.licensePropertyKey
             };
             const licenseText = require('./utils/license-text.js');
-            console.log(licenseText.licenseText.bsd2);
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.bsd2);
         }
         if (licenseData.license[0].includes("New")){
             keyToPush = "bsd3";
@@ -302,43 +312,60 @@ Add a License
                 licensePropertyKey: readmeData.licensePropertyKey
             };
             const licenseText = require('./utils/license-text.js');
-            console.log(licenseText.licenseText.bsd3);
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.bsd3);
         }
         if (licenseData.license[0].includes("Mozilla")){
             keyToPush = "mozPL";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.mozPL);
         }
         if (licenseData.license[0].includes("v2.0")){
             keyToPush = "gnuGPL2";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.gnuGPL2);
         }
         if (licenseData.license[0].includes("GNU General Public License v3.0")){
             keyToPush = "gnuGPL3";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.gnuGPL3);
         }
         if (licenseData.license[0].includes("Affero")){
             keyToPush = "gnuAGPL3";
             readmeData.licensePropertyKey.push(keyToPush);
+            const licenseText = require('./utils/license-text.js');
+            //console.log(licenseText.licenseText.mit);
+            const writeLicense = require('./utils/write-license-text.js');
+            writeLicense.writeLicense(licenseText.licenseText.gnuAGPL3);
         }
-            console.log(licenseData);
-            readmeData.licenseArray.push(licenseData);
-            module.exports = {
-                title: readmeData.title,
-                description: readmeData.description,
-                fullName: readmeData.fullName,
-                installInstructions: readmeData.installInstructions,
-                usageInstructions: readmeData.usageInstructions,
-                testInstructions: readmeData.testInstructions,
-                email: readmeData.email,
-                github: readmeData.github,
-                contributors: readmeData.contributors,
-                licenseArray: readmeData.licenseArray,
-                licensePropertyKey: readmeData.licensePropertyKey
-            };
-            return readmeData;
+        console.log(licenseData);
+        readmeData.licenseArray.push(licenseData);
+        module.exports = {
+            title: readmeData.title,
+            description: readmeData.description,
+            fullName: readmeData.fullName,
+            installInstructions: readmeData.installInstructions,
+            usageInstructions: readmeData.usageInstructions,
+            testInstructions: readmeData.testInstructions,
+            email: readmeData.email,
+            github: readmeData.github,
+            contributors: readmeData.contributors,
+            licenseArray: readmeData.licenseArray,
+            licensePropertyKey: readmeData.licensePropertyKey
+        };
+        return readmeData;
     });
 }
-
 
 promptUser()
 .then(object1 => {
@@ -370,4 +397,4 @@ promptUser()
     const writeMarkdown = require('./utils/write-markdown.js');
     return writeMarkdown.writeFile(object5);
 });
-//generate and write license file to root dir
+

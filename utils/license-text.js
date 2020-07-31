@@ -1679,7 +1679,7 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.
 `,
-gnuPL3:
+gnuGPL3:
 `                    GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
@@ -3020,4 +3020,4 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 `
 }
 
-module.exports = {licenseText, setName};
+module.exports = {licenseText};

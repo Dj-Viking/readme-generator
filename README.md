@@ -6,7 +6,7 @@
 
 ## Description 
 
-Generate a README.md file using node.js with inquirer
+Generate a README.md file using node.js and npm Inquirer
 
 ## Table of Contents
 * [Installation](#installation)
@@ -16,11 +16,11 @@ Generate a README.md file using node.js with inquirer
 
 ## Installation
 
-install instructions soon
+install instructions coming soon
 
 ## Usage
 
-screenshot example soon
+path to picture coming soon
 
 ## Credits
 

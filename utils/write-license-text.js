@@ -1,15 +1,10 @@
 const fs = require('fs');
-const readmeData = require('../index.js');
-const licenseText = require('./license-text.js');
 
-writeLicense = data, license => {
+writeLicense = data => {
 
-    license = {
-        licenseText: licenseText.licenseText
-    }
 
     return new Promise((resolve, reject) =>{
-        fs.writeFile('./LICENSE', `${data.licenseArray[0].licenseText}`, err =>{
+        fs.writeFile('./LICENSE', `${data}`, err =>{
             if (err) {
                 reject(err);
                 return;
