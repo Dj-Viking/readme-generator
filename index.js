@@ -1,4 +1,17 @@
 
+// important to just put video for instructions on how to run the
+// have a readme that is just for the challenge and for the generated one by the program
+
+//youtube link to the generated one in the readme
+
+//what command to run to start the program
+
+//functioning table of contents
+
+// can say most of the readme was generated with the program. but sample readme is
+//  brought to by a link takes to the file in the repo
+
+
 
 //***DONE GIVEN a command-line application that accepts user input
 //***DONE WHEN I am prompted for information about my application repository
@@ -86,7 +99,7 @@ promptUser = () => {
         {
             type: 'input',
             name: 'fullName',
-            message: 'Please enter your full name - for end user contact purposes. \n   And should you choose a license that requires a name, it will be placed there automatically!',
+            message: 'Please enter your full name - for end user contact purposes. \n   And should you choose a license that requires a name, it will be placed in the License automatically!',
             default: false
         },
         {
@@ -164,8 +177,10 @@ Add a Contributor
     .then(contribData => {
         readmeData.contributors.push(contribData);
         if (contribData.confirmAddContrib) {
+            delete contribData.confirmAddContrib;
             return promptContrib(readmeData);//if confirmAddContrib is true recursively loop back through the function to add more contributors
         } else {// if false return the object as is.
+            delete contribData.confirmAddContrib;
             return readmeData;
         }
     });
@@ -177,9 +192,9 @@ Add a Contributor
 promptLicense = readmeData => {
     //const licenseText = require('./utils/license-text.js');
     console.log(`
-    =============
-    Add a License
-    =============
+=============
+Add a License
+=============
         `)
     if (!readmeData.licenseArray && !readmeData.licensePropertyKey){
         readmeData.licenseArray = [];
@@ -356,6 +371,7 @@ promptUser()
 //write the markdown file to the main directory
 .then(object5 => {
     console.log(object5);
+    const writeMarkdown = require('./utils/write-markdown.js');
     return writeMarkdown.writeFile(object5);
 });
 //generate and write license file to root dir

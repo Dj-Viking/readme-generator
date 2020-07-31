@@ -23,13 +23,33 @@ generateFile = data => {
   }
 console.log(data);
 
+displayContributors = () => {
+  let contribString;
+  let contribStringArray = [];
+  for (let i = 0; i < data.contributors.length; i++) {
+    contribString = Object.keys(data.contributors[i].contributor)
+    .map(
+      (key) => data.contributors[i].contributor[key]
+    )
+    .join('');
+    //console.log(result);
+    contribStringArray.push(contribString);
+
+  }
+  joinedArray = contribStringArray.join('\n* ');
+  splitArray = joinedArray.split(', ');
+  return `${splitArray}`
+}
+
   return `
 
 # ${data.title}
 
 [![Selected License Badge](https://img.shields.io/badge/${data.licenseArray[0].license[0]}.svg)]
 
-## ${data.description}
+## Description 
+
+${data.description}
 
 ## Table of Contents
 * [Installation](#installation)
@@ -47,10 +67,7 @@ ${data.usageInstructions}
 
 ## Credits
 
-${data.contributors.forEach(async item =>{
-  console.log(item);
-  item;
-})}
+* ${displayContributors()}
 
 ## License
 
