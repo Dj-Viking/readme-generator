@@ -19,7 +19,10 @@ Generate a readme using node.js and npm Inquirer.
 
 ## Installation
 
-To install this node.js application for use, simply clone this repository to your computer. After this is done, open your terminal window and change your working directory to the cloned repository. Once inside the working directory type the command: npm install. This will find and install all of the dependencies required for running the application, namely Inquirer. After the dependencies are installed. Type into your terminal a new command: npm test. If all goes well, the application will start, and the prompts will begin for you to add your project details onto your automatically generated readme file. 
+* To install this node.js application for use, simply clone this repository to your computer. 
+* After this is done, open your terminal window and change your working directory to the cloned repository. 
+* Once inside the working directory type the command: npm install. This will find and install all of the dependencies required for running the application, namely Inquirer. 
+* After the dependencies are installed. Type into your terminal a new command: npm test. If all goes well, the application will start, and the prompts will begin for you to add your project details onto your automatically generated readme file. 
 
 ## Usage
 
