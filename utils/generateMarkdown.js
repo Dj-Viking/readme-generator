@@ -15,6 +15,7 @@ generateFile = data => {
     installInstructions: readmeData.installInstructions,
     usageInstructions: readmeData.usageInstructions,
     testInstructions: readmeData.testInstructions,
+    contributingGuidelines: readmeData.contributingGuidelines,
     email: readmeData.email,
     github: readmeData.github,
     contributors: readmeData.contributors,
@@ -33,7 +34,6 @@ displayContributors = () => {
       (key) => data.contributors[i].contributor[key]
     )
     .join('');
-    //console.log(result);
     contribStringArray.push(contribString);
 
   }
@@ -103,8 +103,11 @@ ${data.description}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
+* [Testing](#Testing)
 * [Credits](#credits)
+* [Contribute](#Contribute)
 * [License](#license)
+* [Questions](#Questions)
 
 ## Installation
 
@@ -114,9 +117,17 @@ ${data.installInstructions}
 
 ${data.usageInstructions}
 
+## Testing
+
+${data.testInstructions}
+
 ## Credits
 
 * ${displayContributors()}
+
+## Contribute
+
+${data.contributingGuidelines}
 
 ## License
 

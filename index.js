@@ -15,38 +15,29 @@
 
 //***DONE GIVEN a command-line application that accepts user input
 //***DONE WHEN I am prompted for information about my application repository
-//***DONE THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+//***DONE THEN a high-quality, professional README.md is generated with the 
+//***DONE title of my project and sections entitled: 
+//***DONE Description, 
+//***DONE Table of Contents, 
+//***DONE Installation, 
+//SOON Usage, 
+//***DONE License, 
+//SOON Contributing Guidelines,
+//SOON Tests, and 
+//***DONE Questions
 //***DONE WHEN I enter my project title
 //***DONE THEN this is displayed as the title of the README
-//***DONE WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+//SOON WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 //***DONE THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 //***DONE WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+//***DONE THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 //***DONE WHEN I enter my GitHub username
-//SOON THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-//DONE*** WHEN I enter my email address
-//SOON THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-//SOON WHEN I click on the links in the Table of Contents
-//SOON THEN I am taken to the corresponding section of the README
+//***DONE THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+//***DONE WHEN I enter my email address
+//***DONE THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+//***DONE WHEN I click on the links in the Table of Contents
+//***DONE THEN I am taken to the corresponding section of the README
 
-
-
-// // array of questions for user
-// const questions = [
-
-// ];
-
-// // function to write README file
-// function writeToFile(fileName, data) {
-// }
-
-// // function to initialize program
-// function init() {
-
-// }
-
-// // function call to initialize program
-// init();
 
 // const licenseText = require('./utils/license-text.js');
 //console.log(licenseText.licenseText.mit);
@@ -60,17 +51,15 @@
 const emailRegex = /\w+@\w+\.(net|com|org)/;
 const licenseChoices = require('./utils/license-choices.js');
 const inquirer = require('inquirer');
-// const generateMarkdown = require('./utils/generateMarkdown.js');
-// const writeMarkdown = require('./utils/write-markdown.js');
 
 promptUser = () => {
-    console.log("~✨............................✨~");
+    console.log("~✨..________________________..✨~");
     console.log("Welcome to Readme Generator 1.0.0!");
-    console.log("~✨............................✨~");
-    console.log("~✨............................✨~");
-    console.log("~✨............................✨~");
+    console.log("~✨.....__________________.....✨~");
+    console.log("~✨........____________........✨~");
+    console.log("~✨...........______...........✨~");
     console.log("Answer some questions below about your project in order to begin generating a Readme!")
-    console.log("~*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*~");
+    console.log("~✨.............__.............✨~");
     return inquirer.prompt ([
         {
             type: 'input',
@@ -122,8 +111,13 @@ promptUser = () => {
         },
         {
             type: 'input',
+            name: 'contributingGuidelines',
+            message: 'Please give any contributing guidelines if other developers want to contribute to your project:'
+        },
+        {
+            type: 'input',
             name: 'email',
-            message: 'If any end-users of your application were to have any additional questions, \nwhich email should they contact? \n Please provide your valid email address:',
+            message: 'If any end-users of your application were to have any additional questions, \nwhich email should they contact? \n Please provide your valid email address in the format- something@mail.com:',
             validate: emailInput => {
                 if (emailRegex.test(emailInput)){
                     return true;
@@ -181,7 +175,6 @@ Add a Contributor
         }
     });
 }
-
 //create function for asking user if they want a license or not. 
 //if confirmed then let them choose which one
 promptLicense = readmeData => {
@@ -240,6 +233,7 @@ Add a License
                 installInstructions: readmeData.installInstructions,
                 usageInstructions: readmeData.usageInstructions,
                 testInstructions: readmeData.testInstructions,
+                contributingGuidelines: readmeData.contributingGuidelines,
                 email: readmeData.email,
                 github: readmeData.github,
                 contributors: readmeData.contributors,
@@ -249,7 +243,6 @@ Add a License
             };
             return readmeData;
         } else {
-
             let keyToPush;
             if (licenseData.license[0].includes("MIT")){
                 keyToPush = "mit";
@@ -261,6 +254,7 @@ Add a License
                     installInstructions: readmeData.installInstructions,
                     usageInstructions: readmeData.usageInstructions,
                     testInstructions: readmeData.testInstructions,
+                    contributingGuidelines: readmeData.contributingGuidelines,
                     email: readmeData.email,
                     github: readmeData.github,
                     contributors: readmeData.contributors,
@@ -307,6 +301,7 @@ Add a License
                     installInstructions: readmeData.installInstructions,
                     usageInstructions: readmeData.usageInstructions,
                     testInstructions: readmeData.testInstructions,
+                    contributingGuidelines: readmeData.contributingGuidelines,
                     email: readmeData.email,
                     github: readmeData.github,
                     contributors: readmeData.contributors,
@@ -329,6 +324,7 @@ Add a License
                     installInstructions: readmeData.installInstructions,
                     usageInstructions: readmeData.usageInstructions,
                     testInstructions: readmeData.testInstructions,
+                    contributingGuidelines: readmeData.contributingGuidelines,
                     email: readmeData.email,
                     github: readmeData.github,
                     contributors: readmeData.contributors,
@@ -382,6 +378,7 @@ Add a License
                 installInstructions: readmeData.installInstructions,
                 usageInstructions: readmeData.usageInstructions,
                 testInstructions: readmeData.testInstructions,
+                contributingGuidelines: readmeData.contributingGuidelines,
                 email: readmeData.email,
                 github: readmeData.github,
                 contributors: readmeData.contributors,
