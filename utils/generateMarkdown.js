@@ -23,7 +23,7 @@ generateFile = data => {
     licenseConfirmData: readmeData.licenseConfirmData,
     licensePropertyKey: readmeData.licensePropertyKey
   }
-console.log(data);
+//console.log(data);
 
 displayContributors = () => {
   let contribString;
@@ -118,7 +118,9 @@ ${data.usageInstructions}
 
 ## Testing
 
-${data.testInstructions}
+Once the program has the dependencies installed run this test script command to start the program:
+
+<code>${data.testInstructions}</code>
 
 ## Credits
 

@@ -10,11 +10,11 @@ Generate a readme using node.js and npm Inquirer.
 
 ## Table of Contents
 * [Installation](#installation)
-* [Usage](#usage)
+* [Usage](#Usage)
 * [Testing](#Testing)
-* [Credits](#credits)
+* [Credits](#Credits)
 * [Contribute](#Contribute)
-* [License](#license)
+* [License](#License)
 * [Questions](#Questions)
 
 ## Installation

@@ -4,7 +4,7 @@ writeLicense = data => {
 
 
     return new Promise((resolve, reject) =>{
-        fs.writeFile('./LICENSE', `${data}`, err =>{
+        fs.writeFile('./dist/LICENSE', `${data}`, err =>{
             if (err) {
                 reject(err);
                 return;

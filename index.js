@@ -106,7 +106,7 @@ promptUser = () => {
         {
             type: 'input',
             name: 'testInstructions',
-            message: 'Please provide test instructions (if any) to allow the user to test the application before running it the first time manually:',
+            message: 'Please provide the shell command that will test the program after installation:',
             default: false
         },
         {
@@ -187,7 +187,7 @@ Add a License
     if (!readmeData.licenseArray && !readmeData.licensePropertyKey){
         readmeData.licenseArray = [];
         readmeData.licensePropertyKey = [];
-        console.log(readmeData);
+        //console.log(readmeData);
     }
     return inquirer.prompt ([
         {
@@ -224,7 +224,7 @@ Add a License
         }
         console.log(licenseData);
         readmeData.licenseConfirmData.push(licenseData);
-        console.log(readmeData);
+        //console.log(readmeData);
         if(readmeData.licenseConfirmData[0].licenseConfirm === false){
             module.exports = {
                 title: readmeData.title,
@@ -369,7 +369,7 @@ Add a License
                 const writeLicense = require('./utils/write-license-text.js');
                 writeLicense.writeLicense(licenseText.licenseText.gnuAGPL3);
             }
-            console.log(licenseData);
+            //console.log(licenseData);
             readmeData.licenseArray.push(licenseData);
             module.exports = {
                 title: readmeData.title,
@@ -393,32 +393,37 @@ Add a License
 
 promptUser()
 .then(object1 => {
-    console.log(object1);
+    //console.log(object1);
     return object1;
 })
 .then(promptContrib)
 .then(object2 => {
-    console.log(object2);
+    //console.log(object2);
     return object2;
 })
 .then(promptLicense)
 .then(object3 => {
-    console.log(object3);
+    //console.log(object3);
     // we have all the objects we need
     // now just need to pass the object to the generate functions
     return object3;
 })
 //generate and write the markdown file to root dir
 .then(object4 => {
-    console.log(object4);
+    //console.log(object4);
     const generateMarkdown = require('./utils/generateMarkdown.js');
-    console.log(generateMarkdown);
+    //console.log(generateMarkdown);
     return generateMarkdown.generateFile(object4);
 })
 //write the markdown file to the main directory
 .then(object5 => {
-    console.log(object5);
+    //console.log(object5);
     const writeMarkdown = require('./utils/write-markdown.js');
     return writeMarkdown.writeFile(object5);
-});
+})
+.then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return writeFileResponse;
+})
+.catch(err => console.log(err));
 

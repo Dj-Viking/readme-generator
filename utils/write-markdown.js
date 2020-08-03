@@ -13,7 +13,7 @@ writeFile = markdownFile => {
             } else {
                 resolve({
                     ok: true,
-                    message: 'Markdown file created!'
+                    message: 'Markdown file created! File written into the new ./dist directory!'
                 });
             }
         });
