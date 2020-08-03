@@ -31,7 +31,11 @@ Here is a youtube link to a video to show a usage example and explain how to ins
 
 ## Testing
 
-To begin testing the application after installation type the command: npm test | this will launch the index.js file and begin the prompting of questions for generating the readme file.
+* To begin testing the application after installation type the command: 
+
+<code>npm test</code>
+
+* This will launch the index.js file and begin the prompting of questions for generating the readme file.
 
 ## Credits
 
