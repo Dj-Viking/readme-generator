@@ -6,7 +6,7 @@
 
 ## Description 
 
-Generate a readme using node.js and npm Inquirer.
+Generate a readme using node.js and npm Inquirer. This readme was generated mostly from this application! It gives a great starting point having JavaScript write most of the markdown.
 
 ## Table of Contents
 * [Installation](#installation)
