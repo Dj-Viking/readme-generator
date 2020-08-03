@@ -35,7 +35,6 @@ displayContributors = () => {
     )
     .join('');
     contribStringArray.push(contribString);
-
   }
   joinedArray = contribStringArray.join('\n* ');
   splitArray = joinedArray.split(', ');

@@ -21,6 +21,7 @@ const setName = () => {
     settingName = readmeData.fullName;
     
 }
+
 setName();
 const licenseText = {
     
