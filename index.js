@@ -22,12 +22,12 @@
 //***DONE Installation, 
 //SOON Usage, 
 //***DONE License, 
-//SOON Contributing Guidelines,
-//SOON Tests, and 
+//***DONE Contributing Guidelines,
+//***DONE Tests, and 
 //***DONE Questions
 //***DONE WHEN I enter my project title
 //***DONE THEN this is displayed as the title of the README
-//SOON WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+//***DONE WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 //***DONE THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 //***DONE WHEN I choose a license for my application from a list of options
 //***DONE THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
