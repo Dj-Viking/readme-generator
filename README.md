@@ -26,7 +26,8 @@ Generate a readme using node.js and npm Inquirer. This readme was generated most
 
 ## Usage
 
-Video URL coming soon
+Here is a youtube link to a video to show a usage example and explain how to install, run and test this application.
+ https://youtu.be/D9lAo7kxoAY 
 
 ## Testing
 
