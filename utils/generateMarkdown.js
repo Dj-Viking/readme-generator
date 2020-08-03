@@ -100,12 +100,12 @@ ${licenseBadgeGenerator()}
 ${data.description}
 
 ## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
+* [Installation](#Installation)
+* [Usage](#Usage)
 * [Testing](#Testing)
-* [Credits](#credits)
+* [Credits](#Credits)
 * [Contribute](#Contribute)
-* [License](#license)
+* [License](#License)
 * [Questions](#Questions)
 
 ## Installation
