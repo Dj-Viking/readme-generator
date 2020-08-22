@@ -94,6 +94,8 @@ licenseBadgeGenerator = () => {
 # ${data.title}
 
 ${licenseBadgeGenerator()}
+[![Node: JS](https://img.shields.io/badge/Node-JS-1abc5e.svg)](https://img.shields.io/)
+[![Express: JS](https://img.shields.io/badge/placeholder-JS-1abc3e.svg)](https://img.shields.io/) [![Using: placeholder](https://img.shields.io/badge/Using-placeholder-6517D7.svg)](https://img.shields.io/) [![Operation: placeholder](https://img.shields.io/badge/Operation-placeholder-red.svg)](https://img.shields.io/)
 
 ## Description 
 
