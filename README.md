@@ -26,11 +26,16 @@ Generate a readme using node.js and npm Inquirer. This readme was generated most
 
 ## Usage
 
-Video URL coming soon
+Here is a youtube link to a video to show a usage example and explain how to install, run and test this application.
+ https://youtu.be/D9lAo7kxoAY 
 
 ## Testing
 
-To begin testing the application after installation type the command: npm test | this will launch the index.js file and begin the prompting of questions for generating the readme file.
+* To begin testing the application after installation type the command: 
+
+<code>npm test</code>
+
+* This will launch the index.js file and begin the prompting of questions for generating the readme file.
 
 ## Credits
 
