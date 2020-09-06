@@ -19,7 +19,6 @@ let currentYear = currentDay.getFullYear();
 
 const setName = () => {
     settingName = readmeData.fullName;
-    
 }
 
 setName();
