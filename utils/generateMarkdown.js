@@ -94,10 +94,7 @@ licenseBadgeGenerator = () => {
 # ${data.title}
 
 ${licenseBadgeGenerator()}
-[![Node: JS](https://img.shields.io/badge/Node-JS-1abc5e.svg)](https://img.shields.io/)
-[![Express: JS](https://img.shields.io/badge/placeholder-JS-1abc3e.svg)](https://img.shields.io/) [![Using: placeholder](https://img.shields.io/badge/Using-placeholder-6517D7.svg)](https://img.shields.io/) [![Operation: placeholder](https://img.shields.io/badge/Operation-placeholder-red.svg)](https://img.shields.io/)
 
-### Powered By
 ### Powered By 
 [![Node: JS](https://img.shields.io/badge/Node-JS-cfcc00.svg)](https://nodejs.org/en/) [![Express: JS](https://img.shields.io/badge/Express-JS-1b9e00.svg)](https://nodejs.org/en/)
 [![npm: mysql2](https://img.shields.io/badge/npm-mysql2-111AFF.svg)](https://github.com/sidorares/node-mysql2) [![npm: Sequelize](https://img.shields.io/badge/npm-Sequelize-00688a.svg)](https://github.com/sequelize/sequelize) [![Database: MySQL](https://img.shields.io/badge/Database-MySQL-111AFF.svg)](https://downloads.mysql.com/archives/community/) [![npm: dotenv](https://img.shields.io/badge/npm-dotenv-001a80.svg)](https://github.com/motdotla/dotenv) [![Operation: CRUDeholder](https://img.shields.io/badge/Operation-CRUD-red.svg)](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
