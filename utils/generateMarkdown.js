@@ -95,17 +95,22 @@ licenseBadgeGenerator = () => {
 
 ${licenseBadgeGenerator()}
 
+### Powered By
+### Powered By 
+[![Node: JS](https://img.shields.io/badge/Node-JS-cfcc00.svg)](https://nodejs.org/en/) [![Express: JS](https://img.shields.io/badge/Express-JS-1b9e00.svg)](https://nodejs.org/en/)
+[![npm: mysql2](https://img.shields.io/badge/npm-mysql2-111AFF.svg)](https://github.com/sidorares/node-mysql2) [![npm: Sequelize](https://img.shields.io/badge/npm-Sequelize-00688a.svg)](https://github.com/sequelize/sequelize) [![Database: MySQL](https://img.shields.io/badge/Database-MySQL-111AFF.svg)](https://downloads.mysql.com/archives/community/) [![npm: dotenv](https://img.shields.io/badge/npm-dotenv-001a80.svg)](https://github.com/motdotla/dotenv) [![Operation: CRUDeholder](https://img.shields.io/badge/Operation-CRUD-red.svg)](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
 ## Description 
 
 ${data.description}
 
 ## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
+* [Installation](#Installation)
+* [Usage](#Usage)
 * [Testing](#Testing)
-* [Credits](#credits)
+* [Credits](#Credits)
 * [Contribute](#Contribute)
-* [License](#license)
+* [License](#License)
 * [Questions](#Questions)
 
 ## Installation

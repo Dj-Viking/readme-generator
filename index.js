@@ -393,7 +393,7 @@ Add a License
 
 promptUser()
 .then(object1 => {
-    //console.log(object1);
+    console.log(object1);
     return object1;
 })
 .then(promptContrib)
@@ -410,7 +410,7 @@ promptUser()
 })
 //generate and write the markdown file to root dir
 .then(object4 => {
-    //console.log(object4);
+    console.log(object4);
     const generateMarkdown = require('./utils/generateMarkdown.js');
     //console.log(generateMarkdown);
     return generateMarkdown.generateFile(object4);
