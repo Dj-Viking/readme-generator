@@ -4,6 +4,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+### Powered By
+
+[![npm: Inquirer](https://img.shields.io/badge/npm-Inquirer-00872b.svg)](https://github.com/SBoudrias/Inquirer.js) 
+
 ## Description 
 
 Generate a readme using node.js and npm Inquirer. This readme was generated mostly from this application! It gives a great starting point having JavaScript write most of the markdown.

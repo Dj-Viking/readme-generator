@@ -1,8 +1,6 @@
 const fs = require('fs');
 
 writeLicense = data => {
-
-
     return new Promise((resolve, reject) =>{
         fs.writeFile('./dist/LICENSE', `${data}`, err =>{
             if (err) {

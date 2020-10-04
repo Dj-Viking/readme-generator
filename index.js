@@ -50,16 +50,17 @@
 
 const emailRegex = /\w+@\w+\.(net|com|org)/;
 const licenseChoices = require('./utils/license-choices.js');
+const badgeColorList = require('./utils/badgeColorList.js');
 const inquirer = require('inquirer');
 
-promptUser = () => {
-    console.log("~✨..________________________..✨~");
-    console.log("Welcome to Readme Generator 1.0.0!");
-    console.log("~✨.....__________________.....✨~");
-    console.log("~✨........____________........✨~");
-    console.log("~✨...........______...........✨~");
+const promptUser = () => {
+    console.log("\x1b[35m", "Welcome to Readme Generator 1.0.1!", "\x1b[00m");
+    console.log("\x1b[33m", "~✨..________________________..✨~", "\x1b[00m");
+    console.log("\x1b[32m", "~✨....____________________....✨~", "\x1b[00m");
+    console.log("\x1b[33m", "~✨......_______________.......✨~", "\x1b[00m");
+    console.log("\x1b[32m", "~✨........____________........✨~", "\x1b[00m");
+    console.log("\x1b[33m", "~✨..........________..........✨~", "\x1b[00m");
     console.log("Answer some questions below about your project in order to begin generating a Readme!")
-    console.log("~✨.............__.............✨~");
     return inquirer.prompt ([
         {
             type: 'input',
@@ -139,9 +140,10 @@ promptUser = () => {
             }
         },
     ])
+    .catch(e => console.log(e));
 }
 
-promptContrib = readmeData => {
+const promptContrib = readmeData => {
     if(!readmeData.contributors){
         readmeData.contributors = [];
     }
@@ -173,11 +175,53 @@ Add a Contributor
             delete contribData.confirmAddContrib;
             return readmeData;
         }
-    });
+    })
+    .catch(e => console.log(e));
+}
+
+//prompt badges
+const promptBadges = readmeData => {
+    console.log(`
+===============
+   Add Badges
+===============
+            `);
+    if (!readmeData.badgeNameArray && !readmeData.badgeColorArray) {
+        readmeData.badgeNameArray = [];
+        readmeData.badgeColorArray = [];
+    }
+    return inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'badgeName',
+            message: 'Please type the text you want to be entered into the badge. \n Enter one word or two words separate by spaces'
+        },
+        {
+            type: 'list',
+            name: 'badgeColor',
+            choices: badgeColorList,
+            message: 'What color would you like this badge to be? Pick any from the list.'
+        },
+        {
+            type: 'confirm',
+            name: 'moreBadges',
+            message: 'Do you want to add another badge?'
+        }
+    ])
+    .then(badgeInfo => {
+        readmeData.badgeNameArray.push(badgeInfo.badgeName);
+        readmeData.badgeColorArray.push(badgeInfo.badgeColor);
+        readmeData.badgeConfirm = badgeInfo.badgeConfirm;
+        if (badgeInfo.moreBadges) {
+            return promptBadges(readmeData);
+        }
+        return readmeData;
+    })
+    .catch(e => console.log(e));
 }
 //create function for asking user if they want a license or not. 
 //if confirmed then let them choose which one
-promptLicense = readmeData => {
+const promptLicense = readmeData => {
     //const licenseText = require('./utils/license-text.js');
     console.log(`
 =============
@@ -239,7 +283,9 @@ Add a License
                 contributors: readmeData.contributors,
                 licenseArray: readmeData.licenseArray,
                 licenseConfirmData: readmeData.licenseConfirmData,
-                licensePropertyKey: readmeData.licensePropertyKey
+                licensePropertyKey: readmeData.licensePropertyKey,
+                badgeNameArray: readmeData.badgeNameArray,
+                badgeColorArray: readmeData.badgeColorArray
             };
             return readmeData;
         } else {
@@ -260,7 +306,9 @@ Add a License
                     contributors: readmeData.contributors,
                     licenseArray: readmeData.licenseArray,
                     licenseConfirmData: readmeData.licenseConfirmData,
-                    licensePropertyKey: readmeData.licensePropertyKey
+                    licensePropertyKey: readmeData.licensePropertyKey,
+                    badgeNameArray: readmeData.badgeNameArray,
+                    badgeColorArray: readmeData.badgeColorArray
                 };
                 const licenseText = require('./utils/license-text.js');
                 //console.log(licenseText.licenseText.mit);
@@ -307,7 +355,9 @@ Add a License
                     contributors: readmeData.contributors,
                     licenseArray: readmeData.licenseArray,
                     licenseConfirmData: readmeData.licenseConfirmData,
-                    licensePropertyKey: readmeData.licensePropertyKey
+                    licensePropertyKey: readmeData.licensePropertyKey,
+                    badgeNameArray: readmeData.badgeNameArray,
+                    badgeColorArray: readmeData.badgeColorArray
                 };
                 const licenseText = require('./utils/license-text.js');
                 //console.log(licenseText.licenseText.mit);
@@ -330,7 +380,9 @@ Add a License
                     contributors: readmeData.contributors,
                     licenseArray: readmeData.licenseArray,
                     licenseConfirmData: readmeData.licenseConfirmData,
-                    licensePropertyKey: readmeData.licensePropertyKey
+                    licensePropertyKey: readmeData.licensePropertyKey,
+                    badgeNameArray: readmeData.badgeNameArray,
+                    badgeColorArray: readmeData.badgeColorArray
                 };
                 const licenseText = require('./utils/license-text.js');
                 //console.log(licenseText.licenseText.mit);
@@ -384,11 +436,14 @@ Add a License
                 contributors: readmeData.contributors,
                 licenseArray: readmeData.licenseArray,
                 licenseConfirmData: readmeData.licenseConfirmData,
-                licensePropertyKey: readmeData.licensePropertyKey
+                licensePropertyKey: readmeData.licensePropertyKey,
+                badgeNameArray: readmeData.badgeNameArray,
+                badgeColorArray: readmeData.badgeColorArray
             };
         }
         return readmeData;
-    });
+    })
+    .catch(e => console.log(e));
 }
 
 promptUser()
@@ -400,6 +455,11 @@ promptUser()
 .then(object2 => {
     //console.log(object2);
     return object2;
+})
+.then(promptBadges)
+.then(object2a => {
+    //console.log(object2a);
+    return object2a;
 })
 .then(promptLicense)
 .then(object3 => {
