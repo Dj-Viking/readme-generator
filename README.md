@@ -44,6 +44,7 @@ Here is a youtube link to a video to show a usage example and explain how to ins
 ## Credits
 
 * Anders Ackerman
+* [Xandromus](https://github.com/Xandromus)
 * My Three Cats!
 
 ## Contribute
