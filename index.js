@@ -57,7 +57,7 @@ const promptUser = () => {
     console.log("\x1b[35m", "Welcome to Readme Generator 1.0.1!", "\x1b[00m");
     console.log("\x1b[33m", "~✨..________________________..✨~", "\x1b[00m");
     console.log("\x1b[32m", "~✨....____________________....✨~", "\x1b[00m");
-    console.log("\x1b[33m", "~✨......_______________.......✨~", "\x1b[00m");
+    console.log("\x1b[33m", "~✨......________________......✨~", "\x1b[00m");
     console.log("\x1b[32m", "~✨........____________........✨~", "\x1b[00m");
     console.log("\x1b[33m", "~✨..........________..........✨~", "\x1b[00m");
     console.log("Answer some questions below about your project in order to begin generating a Readme!")
@@ -486,4 +486,3 @@ promptUser()
     return writeFileResponse;
 })
 .catch(err => console.log(err));
-

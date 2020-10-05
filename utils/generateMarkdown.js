@@ -54,11 +54,9 @@ generateFile = data => {
   poweredBadgeGen = () => {
     let badgeMarkdown = '';
     for (let i = 0; i < data.badgeNameArray.length; i++) {
-      if (/\w.+\s\w.+/.test(data.badgeNameArray[i]) === false) {
-        badgeMarkdown += `[![${data.badgeNameArray[i]}](https://img.shields.io/badge/${data.badgeNameArray[i]}-${data.badgeColorArray[i]}.svg)]() `
-      } else {
-        badgeMarkdown += `[![${data.badgeNameArray[i].split(' ')[0]}: ${data.badgeNameArray[i].split(' ')[1]}](https://img.shields.io/badge/${data.badgeNameArray[i].split(' ')[0]}-${data.badgeNameArray[i].split(' ')[1]}-${data.badgeColorArray[i]}.svg)]() `
-      }
+      /\w.+\s\w.+/.test(data.badgeNameArray[i])
+      ? badgeMarkdown += `[![${data.badgeNameArray[i].split(' ')[0]}: ${data.badgeNameArray[i].split(' ')[1]}](https://img.shields.io/badge/${data.badgeNameArray[i].split(' ')[0]}-${data.badgeNameArray[i].split(' ')[1]}-${data.badgeColorArray[i]}.svg)]() `
+      : badgeMarkdown += `[![${data.badgeNameArray[i]}](https://img.shields.io/badge/${data.badgeNameArray[i]}-${data.badgeColorArray[i]}.svg)]() `
     }
     return badgeMarkdown;
   }
@@ -103,61 +101,61 @@ generateFile = data => {
     }
   }
 
-    return `
+  return `
 
-  # ${data.title}
+# ${data.title}
 
-  ${licenseBadgeGenerator()}
+${licenseBadgeGenerator()}
 
-  ### Powered By
+### Powered By
 
-  ${poweredBadgeGen()}
+${poweredBadgeGen()}
 
-  ## Description 
+## Description 
 
-  ${data.description}
+${data.description}
 
-  ## Table of Contents
-  * [Installation](#Installation)
-  * [Usage](#Usage)
-  * [Testing](#Testing)
-  * [Credits](#Credits)
-  * [Contribute](#Contribute)
-  * [License](#License)
-  * [Questions](#Questions)
+## Table of Contents
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Testing](#Testing)
+* [Credits](#Credits)
+* [Contribute](#Contribute)
+* [License](#License)
+* [Questions](#Questions)
 
-  ## Installation
+## Installation
 
-  ${data.installInstructions}
+${data.installInstructions}
 
-  ## Usage
+## Usage
 
-  ${data.usageInstructions}
+${data.usageInstructions}
 
-  ## Testing
+## Testing
 
-  Once the program has the dependencies installed run this test script command to start the program:
+Once the program has the dependencies installed run this test script command to start the program:
 
-  <code>${data.testInstructions}</code>
+<code>${data.testInstructions}</code>
 
-  ## Credits
+## Credits
 
-  * ${displayContributors()}
+* ${displayContributors()}
 
-  ## Contribute
+## Contribute
 
-  ${data.contributingGuidelines}
+${data.contributingGuidelines}
 
-  ## License
+## License
 
-  ${displayLicenseSection()}
+${displayLicenseSection()}
 
-  ## Questions
+## Questions
 
-  If anybody has any questions please reach out to the creator of the project - ${data.fullName} via:
-  * Email: ${data.email}
-  * GitHub: (https://github.com/${data.github})
-  `;
+If anybody has any questions please reach out to the creator of the project - ${data.fullName} via:
+* Email: ${data.email}
+* GitHub: (https://github.com/${data.github})
+`;
 }
 
 module.exports = {generateFile}
